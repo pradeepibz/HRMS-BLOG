@@ -1,0 +1,22 @@
+.well
+  .media
+    .media-body
+      %h4.media-heading= blog.title
+      %p= blog.description.html_safe
+      %ul.list-inline.list-unstyled
+        %li
+          %span
+            %i.glyphicon.glyphicon-calendar
+            = time_ago_in_words(blog.created_at)
+        %li |
+          %span
+            %i.glyphicon.glyphicon-star
+            = blog.language.try(:name)
+        %li |
+          %span
+            %i.glyphicon.glyphicon-edit
+            = link_to "Edit", edit_blog_path(blog), remote: true
+        %li |
+          %span
+            %i.glyphicon.glyphicon-remove
+            = link_to "Destroy", blog_path(blog), "data-confirm" => "Are you sure?", remote: true, method: :delete

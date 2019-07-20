@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title HRMSBlog
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag Ckeditor.cdn_url
+  %body
+    = nav_bar fixed: :top, brand: "IBZ Blog" do
+      = menu_group do
+        = menu_item "Home", root_path
+        = menu_item "Languages", languages_path
+        = menu_item "Posts", blogs_path
+    .container.wrap
+      = yield

@@ -1,0 +1,13 @@
+.modal-dialog
+  / Modal content
+  .modal-content
+    .modal-header
+      %button.close{"data-dismiss" => "modal", :type => "button"} ×
+      %h4.modal-title Language
+    = form_for language, class: "form-horizontal center", remote: true do |f|
+      .modal-body
+        .form-group
+          %label Name
+          = f.text_field :name, class: "form-control", required: true
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+        = f.submit button_name, class: "btn btn-success"

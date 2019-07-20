@@ -1,0 +1,12 @@
+= form_for @blog, class: "form-horizontal center" do |f|
+  .form-group
+    %label Select Language
+    = f.select :language_id, options_for_select(Language.all.map{|l| [l.name, l.id]}), {prompt: "Select Language"}, class: "form-control", required: true
+  .form-group
+    %label Title
+    = f.text_field :title, class: "form-control", required: true
+  .form-group
+    %label Description
+    = f.cktext_area :description, class: "form-control"
+  .form-action
+    = f.submit "Post"

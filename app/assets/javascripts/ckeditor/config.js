@@ -1,16 +1,23 @@
-CKEDITOR.editorConfig = function (config) {
-  // ... other configuration ...
+$(document).ready(function(){
+  ckeditor_config();
+});
 
-  config.toolbar_mini = [
-      { name: 'basicstyles', items: [ 'Bold','Italic','Underline'] },
-      { name: 'paragraph',   items: [ 'BulletedList','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-'] },
-      { name: 'links',       items: [ 'Link' ] },
-      // '/',
-      { name: 'styles',      items: [ 'Font','FontSize' ] },
-      { name: 'colors',      items: [ 'TextColor' ] },
-      { name: 'insert', items: [ 'Image', 'Table', 'HorizontalRule', 'SpecialChar' ] },
-    ]
-  config.toolbar = "mini";
+function ckeditor_config(){
 
-  // ... rest of the original config.js  ...
+  CKEDITOR.editorConfig = function (config) {
+    // ... other configuration ...
+
+    config.toolbar_mini = [
+        { name: 'basicstyles', items: [ 'Bold','Italic','Underline'] },
+        { name: 'paragraph',   items: [ 'BulletedList','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','-'] },
+        { name: 'links',       items: [ 'Link' ] },
+        // '/',
+        { name: 'styles',      items: [ 'Font','FontSize' ] },
+        { name: 'colors',      items: [ 'TextColor' ] },
+        { name: 'insert', items: [ 'Image', 'Table', 'HorizontalRule', 'SpecialChar' ] },
+      ]
+    config.toolbar = "mini";
+
+    // ... rest of the original config.js  ...
+  }
 }

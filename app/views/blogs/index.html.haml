@@ -1,0 +1,14 @@
+.row
+  .col-md-6
+    = text_field_tag :search_blog, "", class: "form-control", placeholder: "Search Blog"
+  .col-md-4
+  .col-md-2
+    %button.btn.btn-info{"data-target" => "#newPost", "data-toggle" => "modal", :type => "button"} New Post
+
+#all-blogs
+  = render @blogs
+
+#newPost.modal.fade{:role => "dialog"}
+  = render partial: "post_modal", locals: {blog: @blog, button_name: "Post"}
+
+#editPost.modal.fade{:role => "dialog"}

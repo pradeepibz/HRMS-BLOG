@@ -1,0 +1,19 @@
+.modal-dialog
+  / Modal content
+  .modal-content
+    .modal-header
+      %button.close{"data-dismiss" => "modal", :type => "button"} ×
+      %h4.modal-title New Post
+    = form_for blog, class: "form-horizontal center", remote: true do |f|
+      .modal-body
+        .form-group
+          %label Select Language
+          = f.select :language_id, options_for_select(Language.all.map{|l| [l.name, l.id]}), {prompt: "Select Language"}, class: "form-control", required: true
+        .form-group
+          %label Title
+          = f.text_field :title, class: "form-control", required: true
+        .form-group
+          %label Description
+          = f.cktext_area :description, class: "form-control", id: "blog_description_#{blog.try(:id)}"
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+        = f.submit button_name, class: "btn btn-success"

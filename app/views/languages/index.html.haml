@@ -1,0 +1,13 @@
+%button.btn.btn-info{"data-target" => "#newLanguage", "data-toggle" => "modal", :type => "button"} New Language
+
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th{colspan: 2} Actions
+  %tbody#all-languages
+    = render @languages
+
+#newLanguage.modal.fade{:role => "dialog"}
+  = render partial: "language_modal", locals: {language: Language.new, button_name: "Create"}
+#editLanguage.modal.fade{:role => "dialog"}
